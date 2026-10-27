@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقاولات المغرب | Moqawalat Al Maghrib</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        morocco: {
+                            red: '#C1272D',
+                            green: '#006233',
+                            gold: '#D4AF37',
+                            dark: '#1A1A1A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .bg-pattern {
+            background-color: #006233;
+            background-image: radial-gradient(#D4AF37 0.75px, transparent 0.75px), radial-gradient(#D4AF37 0.75px, #006233 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0,15px 15px;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-morocco-green text-white rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg border-2 border-morocco-gold">
+                    م
+                </div>
+                <div>
+                    <h1 class="text-xl font-black text-slate-900 tracking-tight leading-none">مقاولات المغرب</h1>
+                    <span class="text-xs text-morocco-green font-bold">Moqawalat Al Maghrib</span>
+                </div>
+            </div>
+
+            <!-- Header Action Buttons -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <span class="hidden md:inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+                    <i class="fa-solid fa-circle-check"></i> وكالة معتمدة بالمغرب
+                </span>
+                
+                <!-- Admin Toggle Button -->
+                <button onclick="toggleView()" id="navToggleBtn" class="bg-morocco-red hover:bg-red-700 text-white font-bold text-xs sm:text-sm px-3 sm:px-4 py-2.5 rounded-xl transition duration-200 shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span id="navToggleText">دخول لوحة التحكم (المدير)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CLIENT LANDING PAGE VIEW -->
+    <main id="clientView" class="block flex-grow">
+        <!-- Hero Section -->
+        <section class="bg-pattern text-white py-12 md:py-20 px-4 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center space-y-6 relative z-10">
+                <div class="inline-block bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-morocco-gold text-sm font-bold mb-2">
+                    <i class="fa-solid fa-shield-halved text-morocco-gold ml-1"></i> خيارك الآمن 100% لإصلاح وتجهيز العقارات بالمغرب
+                </div>
+                
+                <h2 class="text-3xl md:text-5xl font-black leading-tight">
+                    شريتي شقة أو دار وباغي تقنييها <br class="hidden sm:inline"/>
+                    <span class="text-morocco-gold underline decoration-morocco-red decoration-4">بلا صداع رأس</span>، بلا غش المعلمين، وبأعلى جودة؟
+                </h2>
+                
+                <p class="text-base md:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed">
+                    وكالة <strong>"مقاولات المغرب"</strong> تقدم خدمة ربط العملاء والمغاربة المقيمين بالخارج بمقاولين وحرفيين موثوقين ومفحوصين <span class="text-morocco-gold font-bold">مجاناً 100%</span> وبدون أي زيادة في التكلفة المباشرة عليك!
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#leadForm" class="w-full sm:w-auto bg-morocco-red hover:bg-red-700 text-white font-black text-lg px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition duration-200 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <span>ابدأ تحديد مواصفات مشروعك الآن</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    <a href="#howItWorks" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold text-base px-6 py-4 rounded-2xl transition border border-white/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-question"></i> كيف نعمل؟
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats / Trust Badges -->
+        <section class="bg-white border-b border-slate-200 py-6">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-2">
+                    <div class="text-2xl md:text-3xl font-black text-morocco-green">+150</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-bold">مشروع مكتمل بنجاح</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-2xl md:text-3xl font-black text-morocco-green">100%</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-bold">ضمان احترام الآجال</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-2xl md:text-3xl font-black text-morocco-green">+50</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-bold">مقاول ومطوّر معتمد</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-2xl md:text-3xl font-black text-morocco-green">0 درهم</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-bold">عمولة على الزبون</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Form Section -->
+        <section id="leadForm" class="py-12 md:py-16 px-4 bg-slate-100">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-xl p-6 md:p-10 border border-slate-200">
+                    <div class="text-center mb-8">
+                        <span class="text-xs font-bold text-morocco-red uppercase tracking-wider bg-red-50 px-3 py-1 rounded-full">طلب استشارة وتحديد الميزانية</span>
+                        <h3 class="text-2xl md:text-3xl font-black text-slate-900 mt-2">عمر معلومات مشروعك ونتواصلوا معاك فالحين</h3>
+                        <p class="text-slate-500 text-sm mt-1">خدماتنا متوفرة لجميع المدن الرئيسية وللمغاربة المقيمين بالخارج (MRE)</p>
+                    </div>
+
+                    <form id="publicLeadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <!-- Full Name -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">الاسم الكامل <span class="text-morocco-red">*</span></label>
+                            <input type="text" id="clientName" required placeholder="مثال: ياسين الفاسي" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-morocco-green focus:border-morocco-green outline-none transition">
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">رقم الهاتف / الواتساب <span class="text-morocco-red">*</span></label>
+                            <input type="tel" id="clientPhone" required placeholder="0612345678" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-morocco-green focus:border-morocco-green outline-none transition text-left" dir="ltr">
+                        </div>
+
+                        <!-- Residence Type (Local vs MRE) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">مكان الإقامة الحالي <span class="text-morocco-red">*</span></label>
+                                <select id="clientResidence" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-morocco-green focus:border-morocco-green outline-none transition">
+                                    <option value="ساكن بالمغرب">ساكن فالمغرب</option>
+                                    <option value="مغربي مقيم بالخارج (MRE)">مغربي مقيم بالخارج (MRE)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">مدينة العقار المراد إصلاحه <span class="text-morocco-red">*</span></label>
+                                <select id="clientCity" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-morocco-green focus:border-morocco-green outline-none transition">
+                                    <option value="الدار البيضاء">الدار البيضاء (Casablanca)</option>
+                                    <option value="طنجة">طنجة (Tanger)</option>
+                                    <option value="الرباط / سلا">الرباط / سلا (Rabat / Salé)</option>
+                                    <option value="مراكش">مراكش (Marrakech)</option>
+                                    <option value="أكادير">أكادير (Agadir)</option>
+                                    <option value="فاس / مكناس">فاس / مكناس (Fès / Meknès)</option>
+                                    <option value="مدينة أخرى">مدينة أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Budget Range -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">الميزانية التقريبية المخصصة للاصلاحات <span class="text-morocco-red">*</span></label>
+                            <select id="clientBudget" required class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-morocco-green focus:border-morocco-green outline-none transition">
+                                <option value="أقل من 30,000 درهم">أقل من 30,000 درهم</option>
+                                <option value="بين 30,000 و 80,000 درهم">بين 30,000 و 80,000 درهم</option>
+                                <option value="بين 80,000 و 200,000 درهم">بين 80,000 و 200,000 درهم</option>
+                                <option value="أكثر من 200,000 درهم">أكثر من 200,000 درهم (فينيسيون كامل ومشاريع ضخمة)</option>
+                            </select>
+                        </div>
+
+                        <!-- Work Needed (Checkboxes) -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">نوع الأشغال المطلوبة (اختر ما يناسبك):</label>
+                            <div class="grid grid-cols-2 gap-3 text-sm">
+                                <label class="flex items-center gap-2 p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" name="workType" value="فينيسيون شامل كامل (Cle en main)" class="w-4 h-4 text-morocco-green rounded">
+                                    <span>فينيسيون كامل (Clé en main)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" name="workType" value="الزليج والرخام" class="w-4 h-4 text-morocco-green rounded">
+                                    <span>الزليج والرخام</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" name="workType" value="الجبص والصباغة والديكور" class="w-4 h-4 text-morocco-green rounded">
+                                    <span>الجبص والصباغة والديكور</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" name="workType" value="الكهرباء والترصيص الصحي (Plomberie)" class="w-4 h-4 text-morocco-green rounded">
+                                    <span>الكهرباء والبلومبي</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" name="workType" value="الألومنيوم والخشب والمطابخ" class="w-4 h-4 text-morocco-green rounded">
+                                    <span>الألومنيوم والكوزينة</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                                    <input type="checkbox" name="workType" value="تصميم معماري وتخطيط 3D" class="w-4 h-4 text-morocco-green rounded">
+                                    <span>تصميم وحساب التكلفة (Plan 3D)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">تفاصيل إضافية (اختياري)</label>
+                            <textarea id="clientNotes" rows="3" placeholder="مثال: شقة مساحتها 80 متر مربع، بغيت نبدأ الأشغال الشهر القادم..." class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-morocco-green focus:border-morocco-green outline-none transition"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-morocco-green hover:bg-emerald-800 text-white font-black text-lg py-4 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>إرسال الطلب وحجز الاستشارة المجانية</span>
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box -->
+                    <div id="formSuccessMessage" class="hidden mt-6 bg-emerald-50 border border-emerald-300 p-6 rounded-2xl text-center space-y-3">
+                        <div class="w-12 h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto text-xl">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-emerald-900">تم إرسال طلبك بنجاح!</h4>
+                        <p class="text-emerald-700 text-sm">شكراً لتواصلك معنا. قام فريقنا بتسجيل معلوماتك وسنقوم بالاتصال بك في أقرب وقت عبر الهاتف أو الواتساب.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="howItWorks" class="py-16 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-black text-slate-900">كيفاش كنوفروا عليك الوقت والصداع؟</h3>
+                    <p class="text-slate-500 mt-2">4 خطوات بسيطة للحصول على منزل أحلامك بضمانة عالية</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center space-y-3 p-6 rounded-2xl bg-slate-50 border border-slate-100 relative">
+                        <div class="w-12 h-12 bg-morocco-red text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">1</div>
+                        <h4 class="font-bold text-lg text-slate-900">كتعمر الطلب</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">كتحدد لينا أشنو بغيتي تصلح والميزانية والمدينة ديال العقار فدقيقة واحدة.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center space-y-3 p-6 rounded-2xl bg-slate-50 border border-slate-100 relative">
+                        <div class="w-12 h-12 bg-morocco-green text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">2</div>
+                        <h4 class="font-bold text-lg text-slate-900">دراسة المشروع</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">كنتصلوا بيك للتحقق من التفاصيل وتقديم دراسة أولية ومجانية للتكلفة.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center space-y-3 p-6 rounded-2xl bg-slate-50 border border-slate-100 relative">
+                        <div class="w-12 h-12 bg-morocco-gold text-slate-900 rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">3</div>
+                        <h4 class="font-bold text-lg text-slate-900">اختيار المقاول</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">كنربطوك بأحسن 2 أو 3 مقاولين معتمدين فمدينتك للقيام بالمعاينة والـ Devis.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="text-center space-y-3 p-6 rounded-2xl bg-slate-50 border border-slate-100 relative">
+                        <div class="w-12 h-12 bg-slate-900 text-white rounded-2xl font-black text-xl flex items-center justify-center mx-auto shadow-md">4</div>
+                        <h4 class="font-bold text-lg text-slate-900">المتابعة والتسليم</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">كنتبعوا معاك سير الأشغال حتى كتستلم الساروت مطمن وبلا مشاكل.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ADMIN CRM DASHBOARD VIEW (HIDDEN BY DEFAULT) -->
+    <main id="adminView" class="hidden flex-grow bg-slate-900 text-white p-4 md:p-8">
+        <div class="max-w-7xl mx-auto space-y-6">
+            
+            <!-- Dashboard Header -->
+            <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="bg-morocco-gold text-slate-900 font-black text-xs px-3 py-1 rounded-full uppercase">خاص بالمدير</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-1">لوحة إدارة الطلبات (CRM Dashboard)</h2>
+                    <p class="text-slate-400 text-sm">متابعة وإدارة طلبات الإشارات الواردة من استمارة الزبائن أوتوماتيكياً</p>
+                </div>
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <button onclick="exportCSV()" class="flex-1 md:flex-none bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-csv"></i> تصدير البيانات (CSV)
+                    </button>
+                    <button onclick="toggleView()" class="flex-1 md:flex-none bg-slate-700 hover:bg-slate-600 text-white font-bold text-xs px-4 py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-globe"></i> الرجوع للواجهة العامة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analytics Overview Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700">
+                    <div class="text-slate-400 text-xs font-bold mb-1">إجمالي الطلبات (Leads)</div>
+                    <div id="statTotal" class="text-3xl font-black text-white">0</div>
+                    <div class="text-emerald-400 text-xs mt-2"><i class="fa-solid fa-rotate"></i> محدّث أوتوماتيكياً</div>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700">
+                    <div class="text-slate-400 text-xs font-bold mb-1">طلبات MRE (مقيمون بالخارج)</div>
+                    <div id="statMRE" class="text-3xl font-black text-morocco-gold">0</div>
+                    <div class="text-slate-400 text-xs mt-2">فرص عالية القيمة</div>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700">
+                    <div class="text-slate-400 text-xs font-bold mb-1">ميزانيات مرتفعة (+80k)</div>
+                    <div id="statHighBudget" class="text-3xl font-black text-emerald-400">0</div>
+                    <div class="text-slate-400 text-xs mt-2">مشاريع فينيسيون كامل</div>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700">
+                    <div class="text-slate-400 text-xs font-bold mb-1">المدن الأكثر طلبات</div>
+                    <div id="statTopCity" class="text-xl font-black text-white py-1">--</div>
+                    <div class="text-slate-400 text-xs">التغطية الرئيسية</div>
+                </div>
+            </div>
+
+            <!-- Leads Management Table Section -->
+            <div class="bg-slate-800 rounded-3xl border border-slate-700 p-6 space-y-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <h3 class="text-xl font-bold">قائمة الطلبات المستلمة</h3>
+                    <div class="flex items-center gap-3 w-full md:w-auto">
+                        <!-- Search Box -->
+                        <input type="text" id="searchInput" oninput="filterLeads()" placeholder="بحث باسم العميل، الهاتف، المدينة..." class="bg-slate-900 text-white text-sm px-4 py-2.5 rounded-xl border border-slate-700 focus:outline-none focus:border-morocco-green w-full md:w-64">
+                        <!-- Status Filter -->
+                        <select id="statusFilter" onchange="filterLeads()" class="bg-slate-900 text-white text-sm px-3 py-2.5 rounded-xl border border-slate-700 focus:outline-none">
+                            <option value="ALL">جميع الحالات</option>
+                            <option value="جديد">جديد</option>
+                            <option value="تم الاتصال">تم الاتصال</option>
+                            <option value="مكتمل">مكتمل</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Table Container -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-sm">
+                        <thead class="bg-slate-900/50 text-slate-400 text-xs uppercase border-b border-slate-700">
+                            <tr>
+                                <th class="p-4">التاريخ</th>
+                                <th class="p-4">اسم العميل والحي</th>
+                                <th class="p-4">المدينة والحي</th>
+                                <th class="p-4">الإقامة</th>
+                                <th class="p-4">الأشغال المطلوبة</th>
+                                <th class="p-4">الميزانية</th>
+                                <th class="p-4">حالة الطلب</th>
+                                <th class="p-4 text-center">إجراءات التواصل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTableBody" class="divide-y divide-slate-700/50">
+                            <!-- JS populated rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 text-xs py-8 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
+            <div>
+                <p class="font-bold text-slate-200">منصة "مقاولات المغرب" - جميع الحقوق محفوظة &copy; 2026</p>
+                <p class="mt-1">الوسيط الأول بالمغرب المتخصص في ربط العملاء بالمقاولين المعتمدين.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/212600000000" target="_blank" class="text-emerald-500 hover:underline"><i class="fa-brands fa-whatsapp"></i> الدعم الفني المباشر</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Sample Initial Data (Stored in LocalStorage if empty)
+        const defaultLeads = [
+            {
+                id: 101,
+                date: "2026-10-26 14:30",
+                name: "ياسين الفاسي",
+                phone: "0661234567",
+                residence: "مغربي مقيم بالخارج (MRE)",
+                city: "طنجة",
+                budget: "أكثر من 200,000 درهم",
+                work: ["فينيسيون شامل كامل (Cle en main)", "الكونية والألومنيوم"],
+                notes: "شقة جديدة 120m² بغيت فينيسيون هايلوكس.",
+                status: "جديد"
+            },
+            {
+                id: 102,
+                date: "2026-10-27 09:15",
+                name: "خديجة السلاوي",
+                phone: "0655987654",
+                residence: "ساكن بالمغرب",
+                city: "الدار البيضاء",
+                budget: "بين 30,000 و 80,000 درهم",
+                work: ["الزليج والرخام", "الجبص والصباغة والديكور"],
+                notes: "إصلاح المطبخ والحمام فقط.",
+                status: "تم الاتصال"
+            }
+        ];
+
+        // Retrieve or Set Leads in LocalStorage
+        function getLeads() {
+            const data = localStorage.getItem('moqawalat_leads');
+            if (!data) {
+                localStorage.setItem('moqawalat_leads', JSON.stringify(defaultLeads));
+                return defaultLeads;
+            }
+            return JSON.parse(data);
+        }
+
+        function saveLeads(leads) {
+            localStorage.setItem('moqawalat_leads', JSON.stringify(leads));
+            renderAdminDashboard();
+        }
+
+        // Toggle view between Public Page and Admin Dashboard
+        function toggleView() {
+            const clientView = document.getElementById('clientView');
+            const adminView = document.getElementById('adminView');
+            const navBtnText = document.getElementById('navToggleText');
+
+            if (adminView.classList.contains('hidden')) {
+                adminView.classList.remove('hidden');
+                clientView.classList.add('hidden');
+                navBtnText.textContent = "الرجوع لصفحة الزبون";
+                renderAdminDashboard();
+            } else {
+                adminView.classList.add('hidden');
+                clientView.classList.remove('hidden');
+                navBtnText.textContent = "دخول لوحة التحكم (المدير)";
+            }
+        }
+
+        // Handle Public Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const residence = document.getElementById('clientResidence').value;
+            const city = document.getElementById('clientCity').value;
+            const budget = document.getElementById('clientBudget').value;
+            const notes = document.getElementById('clientNotes').value;
+
+            // Get selected checkboxes
+            const selectedWork = [];
+            document.querySelectorAll('input[name="workType"]:checked').forEach(cb => {
+                selectedWork.push(cb.value);
+            });
+
+            const newLead = {
+                id: Date.now(),
+                date: new Date().toISOString().replace('T', ' ').substring(0, 16),
+                name: name,
+                phone: phone,
+                residence: residence,
+                city: city,
+                budget: budget,
+                work: selectedWork.length > 0 ? selectedWork : ["غير محدد"],
+                notes: notes,
+                status: "جديد"
+            };
+
+            const leads = getLeads();
+            leads.unshift(newLead);
+            saveLeads(leads);
+
+            // UI Feedback
+            document.getElementById('publicLeadForm').reset();
+            document.getElementById('formSuccessMessage').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('formSuccessMessage').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        // Render Admin Dashboard Data and Analytics
+        function renderAdminDashboard() {
+            const leads = getLeads();
+            const tableBody = document.getElementById('leadsTableBody');
+            
+            // Analytics Updates
+            document.getElementById('statTotal').textContent = leads.length;
+            document.getElementById('statMRE').textContent = leads.filter(l => l.residence.includes('MRE')).length;
+            document.getElementById('statHighBudget').textContent = leads.filter(l => l.budget.includes('200,000') || l.budget.includes('80,000')).length;
+
+            // Find top city
+            const cityCounts = {};
+            leads.forEach(l => { cityCounts[l.city] = (cityCounts[l.city] || 0) + 1; });
+            let topCity = "--";
+            let maxCount = 0;
+            for (let c in cityCounts) {
+                if (cityCounts[c] > maxCount) {
+                    maxCount = cityCounts[c];
+                    topCity = c;
+                }
+            }
+            document.getElementById('statTopCity').textContent = topCity;
+
+            // Populate Table
+            filterLeads();
+        }
+
+        // Filter Leads in Admin Table
+        function filterLeads() {
+            const leads = getLeads();
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const tableBody = document.getElementById('leadsTableBody');
+
+            tableBody.innerHTML = '';
+
+            const filtered = leads.filter(lead => {
+                const matchesSearch = lead.name.toLowerCase().includes(search) || 
+                                     lead.phone.includes(search) || 
+                                     lead.city.toLowerCase().includes(search);
+                const matchesStatus = statusFilter === 'ALL' || lead.status === statusFilter;
+                return matchesSearch && matchesStatus;
+            });
+
+            if (filtered.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="8" class="text-center p-6 text-slate-500">لا توجد طلبات متطابقة حالياً</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(lead => {
+                // Formatted WhatsApp URL with automated friendly msg
+                const cleanPhone = lead.phone.replace(/[^0-9]/g, '');
+                const formattedPhone = cleanPhone.startsWith('0') ? '212' + cleanPhone.substring(1) : cleanPhone;
+                const waMessage = encodeURIComponent(`السلام عليكم أسي ${lead.name}، معك وكالة "مقاولات المغرب". توصلنا بطلبكم بخصوص مشروع الاصلاح بمدينة ${lead.city}. كيف يمكننا مساعدتك؟`);
+                const waUrl = `https://wa.me/${formattedPhone}?text=${waMessage}`;
+
+                const row = document.createElement('tr');
+                row.className = "hover:bg-slate-700/30 transition text-xs md:text-sm";
+                row.innerHTML = `
+                    <td class="p-4 text-slate-400 dir-ltr text-right">${lead.date}</td>
+                    <td class="p-4 font-bold text-white">${lead.name}</td>
+                    <td class="p-4 text-slate-300">${lead.city}</td>
+                    <td class="p-4">
+                        <span class="px-2 py-1 rounded-full text-xs font-bold ${lead.residence.includes('MRE') ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-slate-700 text-slate-300'}">
+                            ${lead.residence.includes('MRE') ? 'مقيم بالخارج' : 'ساكن بالمغرب'}
+                        </span>
+                    </td>
+                    <td class="p-4 text-slate-300 max-w-xs">${lead.work.join('، ')}</td>
+                    <td class="p-4 text-emerald-400 font-bold">${lead.budget}</td>
+                    <td class="p-4">
+                        <select onchange="updateLeadStatus(${lead.id}, this.value)" class="bg-slate-900 text-xs px-2 py-1 rounded border border-slate-700 font-bold focus:outline-none">
+                            <option value="جديد" ${lead.status === 'جديد' ? 'selected' : ''}>جديد</option>
+                            <option value="تم الاتصال" ${lead.status === 'تم الاتصال' ? 'selected' : ''}>تم الاتصال</option>
+                            <option value="مكتمل" ${lead.status === 'مكتمل' ? 'selected' : ''}>مكتمل</option>
+                        </select>
+                    </td>
+                    <td class="p-4 text-center">
+                        <a href="${waUrl}" target="_blank" class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1.5 rounded-lg transition shadow">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>واتساب</span>
+                        </a>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Change Status of a Lead
+        function updateLeadStatus(id, newStatus) {
+            const leads = getLeads();
+            const index = leads.findIndex(l => l.id === id);
+            if (index !== -1) {
+                leads[index].status = newStatus;
+                saveLeads(leads);
+            }
+        }
+
+        // Export Leads to CSV File
+        function exportCSV() {
+            const leads = getLeads();
+            if (leads.length === 0) {
+                alert("لا توجد بيانات للتصدير!");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+            csvContent += "ID,التاريخ,الاسم,الهاتف,الإقامة,المدينة,الميزانية,الأشغال,الحالة\n";
+
+            leads.forEach(l => {
+                const row = [
+                    l.id,
+                    `"${l.date}"`,
+                    `"${l.name}"`,
+                    `"${l.phone}"`,
+                    `"${l.residence}"`,
+                    `"${l.city}"`,
+                    `"${l.budget}"`,
+                    `"${l.work.join(' - ')}"`,
+                    `"${l.status}"`
+                ].join(",");
+                csvContent += row + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `moqawalat_leads_${new Date().toISOString().substring(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Initial setup on load
+        window.onload = function() {
+            getLeads();
+        };
+    </script>
+</body>
+</html>
